@@ -40,7 +40,7 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 ## Credits
 
-This project was created by [Your Name]. Special thanks to the creators of the JokeAPI for providing the joke data.
+This project was created by [Henok Debesay]. 
 
 ## License
 
