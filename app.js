@@ -1,16 +1,25 @@
+import { getJoke } from './jokeController.js';
+
 const jokeContainer = document.getElementById("joke");
 const btn = document.getElementById("btn");
-const url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
+const likeBtn = document.getElementById("likeBtn");
+const dislikeBtn = document.getElementById("dislikeBtn");
 
-let getJoke = () => {
-    jokeContainer.classList.remove("fade");
-    fetch(url)
-    .then(data => data.json())
-    .then(item =>{
-        jokeContainer.textContent = `${item.joke}`;
-        jokeContainer.classList.add("fade");
-    });
-}
+btn.addEventListener("click", () => getJoke(jokeContainer));
 
-btn.addEventListener("click",getJoke);
-getJoke();
+// Implement liking and disliking functionality
+let likedJokes = [];
+let dislikedJokes = [];
+
+likeBtn.addEventListener("click", () => {
+    likedJokes.push(jokeContainer.textContent);
+    console.log("Liked jokes:", likedJokes);
+});
+
+dislikeBtn.addEventListener("click", () => {
+    dislikedJokes.push(jokeContainer.textContent);
+    console.log("Disliked jokes:", dislikedJokes);
+});
+
+// Initial joke fetch
+getJoke(jokeContainer);
